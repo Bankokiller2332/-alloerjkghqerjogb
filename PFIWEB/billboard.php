@@ -15,8 +15,8 @@
 
     if(isset($_GET["id"]))
     {
-        $module = "displaythreadview.php";
-        array_push($content, $module);
+        //$module = "displaythreadview.php";
+        //array_push($content, $module);
     }
     else{
         $module = "billboardview.php";
