@@ -24,6 +24,6 @@
         header("Location: ../billboard.php");
         die();
     }
-
+    
     header("Location: ../error.php?ErrorMSG=invalid email or password");
     die();

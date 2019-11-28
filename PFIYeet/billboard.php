@@ -3,7 +3,6 @@
     include "UTILS/sessionhandler.php";
 
     $title = "billboard";
-
     if(validate_session()){
         $name = $_SESSION["userName"];
     }
