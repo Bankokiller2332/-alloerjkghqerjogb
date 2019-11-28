@@ -2,19 +2,11 @@
     <div class="row">
         <div class="col-sm-4">
             <h2>REGISTER</h2>
-<<<<<<< HEAD
             <form method = "post" action = "./DOMAINLOGIC/register.dom.php" enctype="multipart/form-data">
                 
-                <div class = "form-group">
-                    <label for="media">Photo de profil</label>
-                    <input type="file" class="form-control" name="Media" id="Media"/>
-=======
-            <form method = "post" action = "./DOMAINLOGIC/register.dom.php"enctype="multipart/form-data">
-
                 <div class="form-group">
                     <label for="Media">Media</label>
                     <input type="file" class="form-control" name="Media" id="Media" >
->>>>>>> 2be3646222488006ca858a2e2d8b56ff704b16ca
                     <div class="valid-feedback">Valid.</div>
                 </div>
 
