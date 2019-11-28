@@ -66,7 +66,6 @@ class UserTDG extends DBAO{
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "SELECT id, email, username FROM $tableName WHERE id=:id";
             $query = "SELECT usagerID, email, username FROM $tableName WHERE usagerID=:id";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':id', $id);
@@ -135,7 +134,6 @@ class UserTDG extends DBAO{
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "SELECT id, email, username FROM $tableName";
             $query = "SELECT usagerID, email, username FROM $tableName";
             $stmt = $conn->prepare($query);
             $stmt->execute();
@@ -186,7 +184,6 @@ class UserTDG extends DBAO{
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "UPDATE $tableName SET email=:email, username=:username WHERE id=:id";
             $query = "UPDATE $tableName SET email=:email, username=:username WHERE usagerID=:id";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':email', $email);
@@ -213,7 +210,6 @@ class UserTDG extends DBAO{
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "UPDATE $tableName SET password=:password WHERE id=:id";
             $query = "UPDATE $tableName SET password=:password WHERE usagerID=:id";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':password', $NHP);
