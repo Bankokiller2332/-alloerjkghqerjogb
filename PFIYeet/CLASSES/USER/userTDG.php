@@ -9,7 +9,7 @@ class UserTDG extends DBAO{
 
     public function __construct(){
         Parent::__construct();
-        $this->tableName = "users";
+        $this->tableName = "usager";
     }
 
     //create table
@@ -96,7 +96,6 @@ class UserTDG extends DBAO{
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetch();
         }
-
         catch(PDOException $e)
         {
             echo "Error: " . $e->getMessage();
@@ -152,16 +151,17 @@ class UserTDG extends DBAO{
     }
 
 
-    public function add_user($email, $username, $password){
+    public function add_user($email, $username, $password, $path){
 
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "INSERT INTO $tableName (email, username, password) VALUES (:email, :username, :password)";
+            $query = "INSERT INTO $tableName (email, username, password, imageProfil) VALUES (:email, :username, :password, :path)";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':path', $path);
             $stmt->execute();
             $resp =  true;
         }

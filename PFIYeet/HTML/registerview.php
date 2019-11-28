@@ -2,7 +2,13 @@
     <div class="row">
         <div class="col-sm-4">
             <h2>REGISTER</h2>
-            <form method = "post" action = "./DOMAINLOGIC/register.dom.php">
+            <form method = "post" action = "./DOMAINLOGIC/register.dom.php" enctype="multipart/form-data">
+                
+                <div class = "form-group">
+                    <label for="media">Photo de profil</label>
+                    <input type="file" class="form-control" name="Media" id="Media"/>
+                    <div class="valid-feedback">Valid.</div>
+                </div>
 
                 <div class="form-group">
                     <label for="email">Email:</label>

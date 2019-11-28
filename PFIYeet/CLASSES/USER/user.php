@@ -106,7 +106,7 @@ class User{
         return true;
     }
 
-    public function register($email, $username, $pw, $vpw){
+    public function register($email, $username, $pw, $vpw, $path){
 
         //check is both password are equals
         if(!($pw === $vpw) || empty($pw) || empty($vpw))
@@ -122,7 +122,7 @@ class User{
 
         //add user to DB
         $TDG = new UserTDG();
-        $res = $TDG->add_user($email, $username, password_hash($pw, PASSWORD_DEFAULT));
+        $res = $TDG->add_user($email, $username, password_hash($pw, PASSWORD_DEFAULT), $path);
         $TDG = null;
         return true;
     }
