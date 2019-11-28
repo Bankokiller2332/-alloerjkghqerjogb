@@ -43,7 +43,7 @@
     }
     else
     {
-        $path = "../PHOTOS/PROFILES/DefaultProfileImage.jpg";
+        $url = "C:\wamp64\www\PFIYeet\PHOTOS\PROFILES\DefaultProfileImage.jpg";
         Media::create_entry('image', $path, 'image_de_profil_default');
     }
     
@@ -58,7 +58,7 @@
     $aUser = new User();
 
     //validateLogin
-    if(!$aUser->register($email, $username, $pw, $pwv, $path))
+    if(!$aUser->register($email, $username, $pw, $pwv, $url))
     {
         http_response_code(400);
         header("Location: ../error.php?ErrorMSG=invalid email or password");

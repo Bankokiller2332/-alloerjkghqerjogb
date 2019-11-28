@@ -198,4 +198,11 @@ class User{
         $TDG = null;
         return $res["username"];
     }
+
+    public static function get_url_by_id($id){
+        $TDG = new UserTDG();
+        $res = $TDG->url_by_id($id);
+        $TDG = null;
+        return $res["imageProfil"];
+    }
 }

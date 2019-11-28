@@ -66,7 +66,7 @@ class UserTDG extends DBAO{
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "SELECT usagerID, email, username FROM $tableName WHERE usagerID=:id";
+            $query = "SELECT usagerID, email, username, imageProfil FROM $tableName WHERE usagerID=:id";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -225,6 +225,28 @@ class UserTDG extends DBAO{
         //fermeture de connection PDO
         $conn = null;
         return $resp;
+    }
+
+    public function url_by_id($id){
+
+        try{
+            $conn = $this->connect();
+            $tableName = $this->tableName;
+            $query = "SELECT imageProfil FROM $tableName WHERE usagerID=:id";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetch();
+        }
+
+        catch(PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $result;
     }
 
 }

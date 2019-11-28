@@ -2,8 +2,6 @@
   <h1>My Profile</h1>
     <div class="row">
         <div class="col-sm-4">
-
-
           <div class="container align-middle border mb-sm-5">
             <h3>Update Infos</h3>
             <form method = "post" action = "./DOMAINLOGIC/updateinfo.dom.php">
@@ -14,7 +12,6 @@
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
-
                 <div class="form-group">
                     <label for="username">username:</label>
                     <input type="text" class="form-control" name="username" id="username"><br>
@@ -25,8 +22,6 @@
                 <button class="btn btn-success mb-sm-3" type="submit">Update profile</button>
             </form>
           </div>
-
-
           <div class="container align-middle border mb-sm-5">
             <h3>Change Password</h3>
             <form method = "post" action = "./DOMAINLOGIC/updatepw.dom.php">
@@ -55,7 +50,15 @@
               <button class="btn btn-success mb-sm-3" type="submit">Change Password</button>
             </form>
           </div>
-
-
-    </div>
+        </div>
+    <div class="align-right col-sm-4 mb-4">
+            <h2> Ma photo de profile</h2>
+            <?php
+              include "./CLASSES/USER/user.php";
+              $aUser = new User();
+              $url = $aUser->get_url_by_id($_SESSION["userID"]);
+              echo "<img src='$url'>";
+            ?>
+      </div>
+  
 </div>
