@@ -48,8 +48,6 @@
         Media::create_entry('image', $path, 'image_de_profil_default');
     }
    
-
-=======
     $url = $_FILES;
     
     if(!is_null($picture)
