@@ -82,11 +82,7 @@
     $aUser = new User();
 
     //validateLogin
-<<<<<<< HEAD
     if(!$aUser->register($email, $username, $pw, $pwv, $path))
-=======
-    if(!$aUser->register($email, $username, $pw, $pwv, $picture))
->>>>>>> 2be3646222488006ca858a2e2d8b56ff704b16ca
     {
         http_response_code(400);
         header("Location: ../error.php?ErrorMSG=invalid email or password");
