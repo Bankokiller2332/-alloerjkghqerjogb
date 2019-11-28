@@ -24,3 +24,4 @@ CREATE TABLE IF NOT EXISTS commentaire
 typeObjet VARCHAR(10) NOT NULL,
 tempsCreation Date NOT NULL,
 contenu VARCHAR(200) NOT NULL);
+yeet
