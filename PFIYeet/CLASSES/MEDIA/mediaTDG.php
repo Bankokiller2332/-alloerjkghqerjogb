@@ -1,6 +1,5 @@
 <?php
 
-include_once __DIR__ . "/../UTILS/connector.php";
 include_once __DIR__ . "/../../UTILS/connector.php";
 
 class mediaTDG extends DBAO{
