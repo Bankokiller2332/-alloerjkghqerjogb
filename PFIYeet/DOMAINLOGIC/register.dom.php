@@ -46,9 +46,7 @@
         $path = "../PHOTOS/PROFILES/DefaultProfileImage.jpg";
         Media::create_entry('image', $path, 'image_de_profil_default');
     }
-   
     $url = $_FILES;
-    
     
     //Validation Posts
     if(!Validator::validate_email($email) || !Validator::validate_password($pw))
