@@ -6,6 +6,7 @@ class User{
     private $id;
     private $email;
     private $username;
+    private $imgUrl;
     private $password;
 
     /*
@@ -199,10 +200,21 @@ class User{
         return $res["username"];
     }
 
-    public static function get_url_by_id($id){
+    public function get_url_by_id($id){
         $TDG = new UserTDG();
         $res = $TDG->url_by_id($id);
         $TDG = null;
+        $this->imgUrl = $res["imageProfil"];
         return $res["imageProfil"];
+    }
+
+    public function update_user_photo($url,$id){        
+        $this->imgUrl = $url;
+
+        $TDG = new UserTDG();
+        $res = $TDG->update_photo($this->imgUrl, $id);       
+        
+        $TDG = null;
+        return $res;
     }
 }

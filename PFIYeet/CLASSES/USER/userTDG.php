@@ -227,6 +227,28 @@ class UserTDG extends DBAO{
         return $resp;
     }
 
+    public function update_photo($newUrl,$id){
+
+        try{
+            $conn = $this->connect();
+            $tableName = $this->tableName;
+            $query = "UPDATE $tableName SET imageProfil=:newUrl WHERE usagerID=:id";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':newUrl', $newUrl);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $resp = true;
+        }
+
+        catch(PDOException $e)
+        {
+            $resp = false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $resp;
+    }
+
     public function url_by_id($id){
 
         try{

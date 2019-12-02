@@ -43,7 +43,7 @@
     }
     else
     {
-        $url = "C:\wamp64\www\PFIYeet\PHOTOS\PROFILES\DefaultProfileImage.jpg";
+        $url = "./PHOTOS/PROFILES/DefaultProfileImage.jpg";
         Media::create_entry('image', $path, 'image_de_profil_default');
     }
     

@@ -57,8 +57,17 @@
               include "./CLASSES/USER/user.php";
               $aUser = new User();
               $url = $aUser->get_url_by_id($_SESSION["userID"]);
-              echo "<img src='$url'>";
+              echo "<img src='$url' alt='Image' height='320' width='320'>";
             ?>
-      </div>
+          <form method = "post" action = "./DOMAINLOGIC/changePhoto.dom.php" enctype="multipart/form-data">                
+              <div class="form-group">
+                  <br>
+                  <label for="Media"><h4>Modify photo</h4></label>
+                  <input type="file" class="form-control" name="Media" id="Media" >
+                  <div class="valid-feedback">Valid.</div>                 
+              </div>
+              <button class="btn btn-success mb-sm-3" type="submit">Change photo</button>
+          </form>
+    </div>
   
 </div>
