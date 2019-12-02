@@ -11,7 +11,7 @@
   <h1 class="mb-4" >Welcome <?php echo $name ?> </h1>
     <div class="row">
         <div class="col-sm-8 mb-4">
-            <?php  ?>
+            <?php  include "albumlistview.php" ?>
         </div>
         <div class="col-sm-4 mb-4">
             <?php  
