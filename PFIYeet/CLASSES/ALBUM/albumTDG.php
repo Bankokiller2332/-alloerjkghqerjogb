@@ -60,9 +60,9 @@ class AlbumTDG extends DBAO{
 
         try{
             $conn = $this->connect();
-            $query = "SELECT * FROM $this->tableName where proprietaire = (select username from usager where id = :id)";
+            $query = "SELECT * FROM $this->tableName where proprietaire = (select username from usager where usagerID = :id)";
             $stmt = $conn->prepare($query);
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':id', $userid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();

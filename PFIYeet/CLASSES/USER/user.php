@@ -217,4 +217,10 @@ class User{
         $TDG = null;
         return $res;
     }
+
+    public static function get_All_Users(){
+        $TDG = new userTDG();
+        $users = $TDG->get_all_users();
+        return $users;
+    }
 }

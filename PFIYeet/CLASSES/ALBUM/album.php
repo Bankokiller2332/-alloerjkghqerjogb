@@ -1,7 +1,7 @@
 <?php
 
 include_once __DIR__ . "/albumTDG.php";
-//include_once __DIR__ . "/../POSTS/post.php";
+//include_once __DIR__ . "/../IMAGE/image.php";
 
 class Album{
 
@@ -23,8 +23,6 @@ class Album{
         return $this->title;
     }
 
-
-
     //setters
     public function set_id($id){
         $this->id = $id;
@@ -40,7 +38,7 @@ class Album{
     public function set_description($description){
         $this->description = $description;
     }
-    public function set_temps($temps){
+    public function set_time($temps){
         $this->tempsCreation = $temps;
     }
 
@@ -99,15 +97,15 @@ class Album{
     /*
     Post related functions
     */
-   /* public function load_posts(){
-        $res = Post::create_post_list($this->id);
+    public function load_image(){
+        $res = Image::create_image_list($this->id);
 
         if(!$res)
         {
             return false;
         }
        $this->posts = $res;
-   }*/
+   }
 
     /*public function display_posts(){
         if(empty($this->posts)){
@@ -146,7 +144,7 @@ class Album{
 
         foreach($TDG_res as $r){
             $album = new Album();
-            $album->set_id($r["id"]);
+            $album->set_id($r["albumID"]);
             $album->set_title($r["titre"]);
             $album->set_proprietaire($r["proprietaire"]);
             $album->set_description($r["description"]);

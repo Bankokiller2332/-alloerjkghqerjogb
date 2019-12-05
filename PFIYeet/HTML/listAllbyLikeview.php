@@ -4,9 +4,9 @@
     $album_list = Album::create_album_list($_SESSION["userID"]);
 ?>
 
-<h3 class="my-4">Mes Albums</h3>
+<h3 class="my-4">Billboard</h3>
 <?php
-  foreach($album_list as $album){
-    $album->display_album();
-  }
+    foreach($album_list as $album){
+        $album->display_album();
+    }
 ?>

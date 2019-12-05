@@ -7,9 +7,10 @@
   }
 
   $title=$_GET["albumTitle"];
+  $id = $_GET["albumID"];
 
   $content = array();
-  array_push($content, ".php");
+  array_push($content, "showImageAlbumview.php");
 
   require_once __DIR__ . "/HTML/masterpage.php";
 ?>
