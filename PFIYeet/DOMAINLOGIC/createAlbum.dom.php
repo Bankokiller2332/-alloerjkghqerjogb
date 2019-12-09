@@ -6,11 +6,8 @@
     $titre = $_POST["titre"];
     $description = $_POST["description"];
     $proprietaire = $_SESSION["userName"];
-    var_dump($titre);
-    var_dump($description);
-    var_dump($proprietaire);
     $monAlbum = new Album();
-    if(!$monAlbum->add_album($titre, $description,$proprietaire)){
+    if(!$monAlbum->add_album($titre, $proprietaire,$description)){
         header("Location: ../error.php?ErrorMSG=information pas correct");
     }
     
