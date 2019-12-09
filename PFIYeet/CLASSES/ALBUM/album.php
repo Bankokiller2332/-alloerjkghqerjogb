@@ -74,9 +74,9 @@ class Album{
     }
 
 
-    public function add_album($title){
+    public function add_album($title,$proprietaire, $description){
         $TDG = new AlbumTDG();
-        $res = $TDG->add_album($title);
+        $res = $TDG->add_album($title,$proprietaire, $description);
         $TDG = null;
         if(!$res)
         {

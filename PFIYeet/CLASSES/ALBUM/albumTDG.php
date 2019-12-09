@@ -143,17 +143,16 @@ class AlbumTDG extends DBAO{
         return $result;
     }
 
-    public function add_album($title, $proprietaire, $description, $tempsCreation){
+    public function add_album($title, $proprietaire, $description){
 
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "INSERT INTO $tableName (titre, proprietaiere, description, tempsCreation) VALUES (:title, :proprietaire, :description,:tempsCreation)";
+            $query = "INSERT INTO $tableName (titre, proprietaire, description, tempsCreation) VALUES (:title, :proprietaire, :description,CURRENT_TIME)";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':proprietaire', $proprietaire);
             $stmt->bindParam(':description', $description);
-            $stmt->bindParam(':tempsCreation', $tempsCreation);
             $stmt->execute();
             $res = true;
         }

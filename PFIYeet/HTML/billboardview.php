@@ -18,7 +18,7 @@
         <div class="col-sm-4 mb-4">
               
             <?php  
-                 include "CreateAlbum.php"
+                 include "CreateAlbumview.php"
             ?>
         </div>
     </div>
