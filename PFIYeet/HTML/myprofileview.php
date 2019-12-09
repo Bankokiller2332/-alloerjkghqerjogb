@@ -68,6 +68,7 @@
               </div>
               <button class="btn btn-success mb-sm-3" type="submit">Change photo</button>
           </form>
+          <?php include "myAlbumsView.php"?>
     </div>
   
 </div>

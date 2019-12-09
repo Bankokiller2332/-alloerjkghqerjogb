@@ -92,11 +92,6 @@ class Album{
         echo "<div class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title'><h5>$title</h5></a>";
         echo "</div>";
         echo "</div>";
-        echo "<div class='btn-group-toggle mb-3' data-toggle='buttons' name='$id'>";
-        echo "<label class='btn btn-primary active btn-outline-light'>";
-        echo "<input type='checkbox' checked autocomplete='off'> like";
-        echo "</label>";
-        echo "</div>";
         
     }
 

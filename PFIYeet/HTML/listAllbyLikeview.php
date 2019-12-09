@@ -9,5 +9,11 @@
 <?php
     foreach($album_list as $album){
         $album->display_album();
+        echo "<div class='btn-group-toggle mb-3' data-toggle='buttons'>";
+        echo "<label class='btn btn-primary active btn-outline-light'>";
+        echo "<input type='checkbox' checked autocomplete='off'> like";
+        echo "</label>";
+        echo "</div>";
     }
+  
 ?>
