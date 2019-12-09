@@ -77,6 +77,28 @@ class AlbumTDG extends DBAO{
         $conn = null;
         return $result;
     }
+    public function get_all_albums(){
+
+        try{
+            $conn = $this->connect();
+            $query = "SELECT * FROM $this->tableName";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':id', $userid);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+        }
+
+        //error catch
+        catch(PDOException $e)
+        {
+            $result = false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $result;
+    }
+
 
 
     public function get_by_ID($id){

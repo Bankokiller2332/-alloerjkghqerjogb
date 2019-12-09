@@ -92,6 +92,12 @@ class Album{
         echo "<div class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title'><h5>$title</h5></a>";
         echo "</div>";
         echo "</div>";
+        echo "<div class='btn-group-toggle mb-3' data-toggle='buttons' name='$id'>";
+        echo "<label class='btn btn-primary active btn-outline-light'>";
+        echo "<input type='checkbox' checked autocomplete='off'> like";
+        echo "</label>";
+        echo "</div>";
+        
     }
 
     /*
@@ -154,6 +160,34 @@ class Album{
 
         return $album_list;
     }
+    private static function list_all_albums(){
+        $TDG = new AlbumTDG();
+        $res = $TDG->get_all_albums();
+        $TDG = null;
+        if(!$res)
+        {
+          return $res;
+        }
+        return $res;
+    }
+
+    public static function create_album_list_all(){
+        $TDG_res = Album::list_all_albums();
+        $album_list = array();
+
+        foreach($TDG_res as $r){
+            $album = new Album();
+            $album->set_id($r["albumID"]);
+            $album->set_title($r["titre"]);
+            $album->set_proprietaire($r["proprietaire"]);
+            $album->set_description($r["description"]);
+            $album->set_time($r["tempsCreation"]);
+            array_push($album_list, $album);
+        }
+
+        return $album_list;
+    }
+
 
     public static function search_album($title){
         $TDG = new AlbumTDG();

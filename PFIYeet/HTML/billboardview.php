@@ -16,13 +16,9 @@
             ?>
         </div>
         <div class="col-sm-4 mb-4">
-              <div class="btn-group-toggle" data-toggle="buttons">
-                 <label class="btn btn-primary active btn-outline-light">
-                   <input type="checkbox" checked autocomplete="off"> like
-                 </label>
-               </div>
+              
             <?php  
-                 
+                 include "CreateAlbum.php"
             ?>
         </div>
     </div>
