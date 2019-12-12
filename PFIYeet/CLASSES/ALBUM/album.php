@@ -22,13 +22,8 @@ class Album{
     public function get_title(){
         return $this->title;
     }
-    
     public function get_description(){
-        return $this->description;
-    }
-
-    public function get_proprietaire(){
-        return $this->proprietaire;
+        return $this->$description;
     }
 
     //setters
@@ -213,5 +208,4 @@ class Album{
         $res = $TDG->get_id_by_proprietaire($proprietaire);
         return $res;
     }
-
 }

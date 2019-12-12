@@ -10,10 +10,9 @@
     $Image = new Image();
     $lstImage = $Image->create_image_list($albumid); 
 
-   // $lst = $aAlbum->load_image();
+   //$lst = $aAlbum->load_image();
     echo "<h1> $albumTitle </h1>";
     echo "<h4> $albumDescription</h4>";   
-    if($_SESSION["userName"] == $lstImage)  
     foreach($lstImage as $img){
         $img->display();
     }

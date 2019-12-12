@@ -162,7 +162,6 @@ class AlbumTDG extends DBAO{
         $conn = null;
         return $result;
     }
-
     public function add_album($title, $proprietaire, $description){
 
         try{
