@@ -22,8 +22,13 @@ class Album{
     public function get_title(){
         return $this->title;
     }
+    
     public function get_description(){
-        return $this->$description;
+        return $this->description;
+    }
+
+    public function get_proprietaire(){
+        return $this->proprietaire;
     }
 
     //setters
@@ -89,14 +94,14 @@ class Album{
     }
 
     public function display_album(){
-        $title = $this->title;
-        $id = $this->id;
-        $description = $this->description;
-        echo "<div class='card bg-dark mb-4'>";
-        echo "<div class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title&description=$description'><h5>$title</h5></a>";
-        echo "</div>";
-        echo "</div>";
-        
+
+        $album = new Album();
+        $album->set_id($this->id);
+        $album->set_title($this->title);
+        $album->set_proprietaire($this->proprietaire);
+        $album->set_description($this->description);
+        $album->set_time($this->tempsCreation);       
+        return $album;
     }
 
     /*
@@ -201,6 +206,12 @@ class Album{
         }
         
         return $album_list;
+    }
+
+    public function get_id_by_proprietaire($proprietaire){
+        $TDG = new AlbumTDG();
+        $res = $TDG->get_id_by_proprietaire($proprietaire);
+        return $res;
     }
 
 }
