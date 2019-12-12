@@ -23,7 +23,10 @@ class Album{
         return $this->title;
     }
     public function get_description(){
-        return $this->$description;
+        return $this->description;
+    }
+    public function get_proprietaire(){
+        return $this->proprietaire;
     }
 
     //setters
