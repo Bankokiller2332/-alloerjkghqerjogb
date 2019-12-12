@@ -126,7 +126,7 @@ class AlbumTDG extends DBAO{
 
         try{
             $conn = $this->connect();
-            $query = "SELECT * FROM ". $this->tableName ." WHERE albumid=:id";
+            $query = "SELECT * FROM ". $this->tableName ." WHERE albumID=:id";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -164,25 +164,7 @@ class AlbumTDG extends DBAO{
         return $result;
     }
 
-    public function get_id_by_proprietaire($proprietaire)
-    {
-        try{
-            $conn = $this->connect();
-            $query = "SELECT usagerID FROM usager WHERE username =:proprietaire";
-            $stmt = $conn->prepare($query);
-            $stmt->bindParam(':proprietaire', $proprietaire);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetch();
-        }
-        catch(PDOException $e)
-        {
-            return false;
-        }
-        //fermeture de connection PDO
-        $conn = null;
-        return $result;
-    }
+    
     public function add_album($title, $proprietaire, $description){
 
         try{

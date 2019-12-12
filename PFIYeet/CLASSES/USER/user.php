@@ -74,6 +74,24 @@ class User{
         $TDG = null;
         return true;
     }
+    public function load_user_by_name($username){
+        $TDG = new UserTDG();
+        $res = $TDG->get_by_username($username);
+
+        if(!$res)
+        {
+            $TDG = null;
+            return false;
+        }
+       // var_dump($res);
+        $this->id = $res["usagerID"];
+        $this->email = $res["email"];
+        $this->username = $res["username"];
+        $this->password = $res["password"];
+
+        $TDG = null;
+        return true;
+    }
 
 
     //Login Validation

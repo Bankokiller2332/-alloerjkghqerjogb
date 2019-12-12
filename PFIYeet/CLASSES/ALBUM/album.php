@@ -58,9 +58,9 @@ class Album{
         if(!$res){
             return false;
         }
-
-        $this->id = $res["id"];
-        $this->title = $res["title"];
+        $this->id = $res["albumID"];
+        $this->title = $res["titre"];
+        $this->proprietaire = $res["proprietaire"];
 
         return true;
     }
@@ -215,11 +215,5 @@ class Album{
         }
         
         return $album_list;
-    }
-
-    public function get_id_by_proprietaire($proprietaire){
-        $TDG = new AlbumTDG();
-        $res = $TDG->get_id_by_proprietaire($proprietaire);
-        return $res;
     }
 }
