@@ -18,7 +18,7 @@
     }
 
     $album = new Album();
-    if(!$album->add_album($title)){
+    if(!$album->add_album($title,$proprietaire, $description)){
       header("Location: ../error.php?ErrorMSG=Bad%20request!");
       die();
     }

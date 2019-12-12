@@ -44,6 +44,12 @@ class Image{
         return $res;
     }
 
+    public function delete()
+    {
+        $TDG = new ImageTDG();
+        $TDG->delete($this->id);
+    }
+
     public static function create_image_list($albumID){
 
         $info_array=Image::fetch_images_by_albumID($albumID);

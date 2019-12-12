@@ -12,6 +12,27 @@ class AlbumTDG extends DBAO{
         $this->tableName = "album";
     }
 
+    public function delete_album($albumID)
+    {       
+        try{
+            $conn = $this->connect();
+            $query = "DELETE from " . $this->tableName . " where albumID =:albumID";           
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':albumID', $albumID);
+            $stmt->execute();
+            $resp = true;
+        }
+        //error catch
+        catch(PDOException $e)
+        {
+            $resp = false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $resp;
+    }
+
+    
     //create table
     public function createTable(){
 

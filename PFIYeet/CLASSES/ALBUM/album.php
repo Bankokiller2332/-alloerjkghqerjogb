@@ -1,7 +1,7 @@
 <?php
 
 include_once __DIR__ . "/albumTDG.php";
-//include_once __DIR__ . "/../IMAGE/image.php";
+include_once __DIR__ . "/../IMAGE/image.php";
 
 class Album{
 
@@ -113,6 +113,17 @@ class Album{
             return false;
         }
        $this->posts = $res;
+   }
+
+   public static function delete_album($id)
+   {
+       $TDG = new albumTDG();
+       $images = Image::create_image_list($id);
+       foreach($images as $img)
+       {
+            $img->delete();
+       }
+       $TDG->delete_album($id);
    }
 
     /*public function display_posts(){

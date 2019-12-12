@@ -30,7 +30,7 @@
     if(!$maPhoto->addImage($url,$albumID,$description)){
         header("Location: ../error.php?ErrorMSG=information pas correct");
     }
-    header("Location: ../billboard.php");
+    header("Location: ../displayAlbum.php");
     die();
 
 ?>

@@ -1,6 +1,6 @@
 <?php
     include "./CLASSES/ALBUM/album.php";
-    include "./CLASSES/IMAGE/image.php";
+    //include "./CLASSES/IMAGE/image.php";
 
     $albumid = $_GET["albumID"];
     $albumTitle = $_GET["albumTitle"];

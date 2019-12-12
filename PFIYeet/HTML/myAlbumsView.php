@@ -14,7 +14,7 @@
         echo "<div class='card bg-dark mb-4'>";
         echo "<div class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title&description=$description'><h5>$title</h5></a>";
         echo "</div>";
-        echo "<a href=''>Supprimer</a>";
+        echo "<a href='./DOMAINLOGIC/supprimerAlbum.dom.php?albumID=$id'>Supprimer</a>";
         echo "</div>";
       }
 ?>

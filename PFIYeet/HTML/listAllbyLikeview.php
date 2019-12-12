@@ -21,7 +21,7 @@
         {
             if($idDuProprio["usagerID"] == $_SESSION["userID"])
             {
-                echo "<a href=''>Supprimer</a>";
+                echo "<a href='./DOMAINLOGIC/supprimerAlbum.dom.php?albumID=$id'>Supprimer</a>";
             }
         }
         echo "</div>";
