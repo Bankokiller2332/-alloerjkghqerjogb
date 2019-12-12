@@ -13,5 +13,4 @@
   array_push($content, "showImageAlbumview.php");
 
   require_once __DIR__ . "/HTML/masterpage.php";
-  var_dump($_GET);
 ?>

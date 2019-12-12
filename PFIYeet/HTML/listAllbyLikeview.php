@@ -9,22 +9,6 @@
 <?php
     foreach($album_list as $album){
         $album->display_album();
-        $id = $album->get_id();
-        $title = $album->get_title();
-        $description = $album->get_description();
-        $proprio = $album->get_proprietaire();
-        $idDuProprio = $album->get_id_by_proprietaire($proprio);
-        echo "<div class='card bg-dark mb-4'>";
-        echo "<div class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title&description=$description'><h5>$title</h5></a>";
-        echo "</div>"; 
-        if(isset($_SESSION["userID"]))
-        {
-            if($idDuProprio["usagerID"] == $_SESSION["userID"])
-            {
-                echo "<a href=''>Supprimer</a>";
-            }
-        }
-        echo "</div>";
         echo "<div class='btn-group-toggle mb-3' data-toggle='buttons'>";
         echo "<label class='btn btn-primary active btn-outline-light'>";
         echo "<input type='checkbox' checked autocomplete='off'> like";

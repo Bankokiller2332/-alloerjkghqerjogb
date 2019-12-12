@@ -40,4 +40,26 @@ class imageTDG extends DBAO{
         $conn = null;
         return $result;
     }
+
+    public function add_Image($url, $albumID, $description){
+
+        try{
+            $conn = $this->connect();
+            $tableName = $this->tableName;
+            $query = "INSERT INTO $tableName (URL, albumID, description, tempsCreation) VALUES (:url, :albumID, :description,CURRENT_TIME)";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':url', $url);
+            $stmt->bindParam(':albumID', $albumID);
+            $stmt->bindParam(':description', $description);
+            $stmt->execute();
+            $res = true;
+        }
+        catch(PDOException $e)
+        {
+            $res = false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $res;
+    }
 }
