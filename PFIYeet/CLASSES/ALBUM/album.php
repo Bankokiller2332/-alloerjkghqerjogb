@@ -22,6 +22,9 @@ class Album{
     public function get_title(){
         return $this->title;
     }
+    public function get_description(){
+        return $this->$description;
+    }
 
     //setters
     public function set_id($id){
@@ -88,8 +91,9 @@ class Album{
     public function display_album(){
         $title = $this->title;
         $id = $this->id;
+        $description = $this->description;
         echo "<div class='card bg-dark mb-4'>";
-        echo "<div class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title'><h5>$title</h5></a>";
+        echo "<div class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title&description=$description'><h5>$title</h5></a>";
         echo "</div>";
         echo "</div>";
         

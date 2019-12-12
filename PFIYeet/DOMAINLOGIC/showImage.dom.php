@@ -4,6 +4,7 @@
 
     $albumid = $_GET["albumID"];
     $albumTitle = $_GET["albumTitle"];
+    $albumDescription = $_GET["description"];
 
     $aAlbum = new Album();  
     $Image = new Image();
@@ -11,6 +12,7 @@
 
    // $lst = $aAlbum->load_image();
     echo "<h1> $albumTitle </h1>";
+    echo "<h4> $albumDescription</h4>";
     if($_SESSION["userName"] == $lstImage)  
     foreach($lstImage as $img){
         $img->display();

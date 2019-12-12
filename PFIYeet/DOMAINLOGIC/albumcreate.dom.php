@@ -11,6 +11,7 @@
 
     $title = $_POST["albumcreation"];
 
+
     if(empty("$title")){
       header("Location: ../error.php?ErrorMSG=bad%20request!");
       die();
@@ -24,7 +25,8 @@
 
     $album->load_album_by_title($title);
     $albumID = $album->get_id();
-    header("Location: ../displayalbum.php?albumID=$albumID&albumTitle=$title");
+    $albumDescription = $albumn->get_description();
+    header("Location: ../displayalbum.php?albumID=$albumID&albumTitle=$title&description=$description");
     die();
 
 ?>
