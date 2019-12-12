@@ -59,8 +59,9 @@ class Album{
             return false;
         }
 
-        $this->id = $res["id"];
-        $this->title = $res["title"];
+        $this->id = $res["albumID"];
+        $this->title = $res["titre"];
+        $this->proprietaire = $res["proprietaire"];
 
         return true;
     }

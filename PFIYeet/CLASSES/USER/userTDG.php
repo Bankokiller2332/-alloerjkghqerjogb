@@ -116,7 +116,7 @@ class UserTDG extends DBAO{
             $stmt->bindParam(':username', $username);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetch();
         }
 
         catch(PDOException $e)
