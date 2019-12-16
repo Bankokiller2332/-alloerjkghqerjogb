@@ -30,7 +30,8 @@
     if(!$maPhoto->addImage($url,$albumID,$description)){
         header("Location: ../error.php?ErrorMSG=information pas correct");
     }
-    header("Location: ../displayAlbum.php");
+    $ancienUrl = $_SERVER['HTTP_REFERER'];
+    header("Location: $ancienUrl");
     die();
 
 ?>
