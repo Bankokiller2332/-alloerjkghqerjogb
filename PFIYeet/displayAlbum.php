@@ -1,7 +1,7 @@
 <?php
   session_start();
   
-  if(!isset($_GET["albumTitle"])){
+  if(!isset($_GET["albumID"])){
     header("Location: error.php?ErrorMSG=Bad%20Request!");
     die();
   }
