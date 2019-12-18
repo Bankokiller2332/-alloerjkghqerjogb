@@ -41,7 +41,7 @@
         }
         include "showCommentaire.dom.php";
         echo "<button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#new$id'>Écrire Commentaire</button>";
-        echo" <div id='new$id' class='collapse'>
+        echo" <div id='new$id' class='collapse'>";#
       
         echo "<button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#col$id'>Écrire Commentaire</button>";
         echo" <div id='col$id' class='collapse'> 
@@ -61,6 +61,7 @@
       </div>
 
     </form>
+    </div>
     </div>
     </div>";
     }
