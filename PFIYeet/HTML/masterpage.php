@@ -9,6 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php include "bootstrap.html";?>
         <title> <?php echo $title ?> </title>
+        
+</style>
     </head>
     <body>
         <?php include "navigationmodule.php";?>
