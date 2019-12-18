@@ -89,7 +89,6 @@ class Image{
     }
 
     public function display(){
-<<<<<<< HEAD
         $image = new Image();
         $image->set_id($this->id);
         $image->set_albumID($this->albumID);
@@ -97,9 +96,6 @@ class Image{
         $image->set_description($this->description);
         $image->set_tempsCreation($this->tempsCreation);       
         return $image;
-=======
-     
->>>>>>> 0f9a3b65c1002af816ceea23fa033081304b6ff1
     }
 
     public function addImage($url, $albumID, $description){
