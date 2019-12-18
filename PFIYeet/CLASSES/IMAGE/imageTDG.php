@@ -82,4 +82,26 @@ class imageTDG extends DBAO{
         $conn = null;
         return $res;
     }
+
+    public function search_image_desc_like($desc){
+        try{
+            $conn = $this->connect();
+            $tableName = $this->tableName;
+            $query = "SELECT * FROM $tableName WHERE description LIKE :desc";
+            $stmt = $conn->prepare($query);
+            $desc = '%' . $desc . '%';
+            $stmt->bindParam(':desc', $desc);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+        }
+
+        catch(PDOException $e)
+        {
+            return false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $result;
+    }
 }
