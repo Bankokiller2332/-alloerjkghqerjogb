@@ -104,10 +104,6 @@ class Image{
         $TDG = null;
         return $res;
     }
-
-<<<<<<< HEAD
-    
-=======
     public static function search_image_like($description){
         $TDG = new imageTDG();
         $res = $TDG->search_image_desc_like($description);
@@ -124,5 +120,4 @@ class Image{
         
         return $image_list;
     }
->>>>>>> 96a6e47889047fff3a47af136212f11d3aea5bd9
 }

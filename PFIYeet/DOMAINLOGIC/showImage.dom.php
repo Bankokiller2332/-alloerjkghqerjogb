@@ -37,16 +37,15 @@
             {
                 echo "<a href='DOMAINLOGIC/deletePhoto.dom.php?imageID=$id'>Supprimer</a>";
             }
-<<<<<<< HEAD
+
         }
         include "showCommentaire.dom.php";
         echo "<button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#new$id'>Écrire Commentaire</button>";
         echo" <div id='new$id' class='collapse'>
-=======
-        }        
+      
         echo "<button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#col$id'>Écrire Commentaire</button>";
         echo" <div id='col$id' class='collapse'> 
->>>>>>> 96a6e47889047fff3a47af136212f11d3aea5bd9
+
         <form method = 'post' action = 'DOMAINLOGIC/createcomment.dom.php'>
 
       <div class='form-group'>
