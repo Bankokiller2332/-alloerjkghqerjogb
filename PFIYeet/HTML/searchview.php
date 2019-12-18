@@ -1,5 +1,5 @@
 <?php
-    //include "CLASSES/THREAD/thread.php";
+    //include "./CLASSES/ALBUM/album.php";
     //$thread_list = Thread::search_thread($_GET["search"]);
 ?>
 

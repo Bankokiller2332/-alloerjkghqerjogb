@@ -1,5 +1,5 @@
 <?php
-    include "./CLASSES/USER/user.php";
+    include_once "./CLASSES/USER/user.php";
 
     $user = new User();
     $monAlbum = new Album();

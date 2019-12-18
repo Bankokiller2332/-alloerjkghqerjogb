@@ -30,6 +30,21 @@ class Image{
         $this->tempsCreation = $tempsCreation;
     }
 
+    public function get_URL()
+    {
+        return $this->URL;
+    }
+
+    public function get_description()
+    {
+        return $this->description;
+    }
+
+    public function get_id()
+    {
+        return $this->id;
+    }
+
     //public function __construct($id, $albumID, $URL, $description, $tempsCreation){
    //     $this->id = $id;
    //     $this->type = $type;
@@ -50,6 +65,12 @@ class Image{
         $TDG->delete($this->id);
     }
 
+    public static function delete_by_id($id)
+    {
+        $TDG = new ImageTDG();
+        $TDG->delete($id);
+    }
+
     public static function create_image_list($albumID){
 
         $info_array=Image::fetch_images_by_albumID($albumID);
@@ -68,14 +89,13 @@ class Image{
     }
 
     public function display(){
-        $url = $this->URL;
-        $description = $this->description;
-        echo "<div class='card bg-dark mb-4'>";
-        echo "<div class='card-header'>";
-        echo "<img src='$url' alt='$description' width='400' height='400'>";
-        echo "<h3 style='color:white'> $description</h3>";
-        echo "</div>";
-        echo "</div>";
+        $image = new Image();
+        $image->set_id($this->id);
+        $image->set_albumID($this->albumID);
+        $image->set_URL($this->URL);
+        $image->set_description($this->description);
+        $image->set_tempsCreation($this->tempsCreation);       
+        return $image;
     }
 
     public function addImage($url, $albumID, $description){

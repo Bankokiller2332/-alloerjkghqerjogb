@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  //session_start();
   
     if(!isset($_GET["search"])){
       header("Location: error.php?ErrorMSG=Bad%20Request!");
