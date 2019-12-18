@@ -105,6 +105,7 @@ class Image{
         return $res;
     }
 
+<<<<<<< HEAD
     
 =======
     public static function search_image_like($description){
@@ -123,4 +124,5 @@ class Image{
         
         return $image_list;
     }
+>>>>>>> 96a6e47889047fff3a47af136212f11d3aea5bd9
 }
