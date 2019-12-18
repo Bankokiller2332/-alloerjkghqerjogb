@@ -203,15 +203,16 @@ class Album{
     }
 
 
-    public static function search_album($title){
+    public static function search_album_like($title){
         $TDG = new AlbumTDG();
         $res = $TDG->search_album_title_like($title);
         $album_list = array();
 
         foreach($res as $r){
             $album = new Album();
-            $album->set_id($r["id"]);
-            $album->set_title($r["title"]);
+            $album->set_id($r["albumID"]);
+            $album->set_title($r["titre"]);
+            $album->set_proprietaire($r["proprietaire"]);
             array_push($album_list, $album);
         }
         

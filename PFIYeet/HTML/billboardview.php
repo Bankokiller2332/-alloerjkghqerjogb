@@ -19,7 +19,6 @@
             <?php  
                  include "CreateAlbumview.php"
             ?>
-        </div>
-        s
+        </div>       
     </div>
 </div>

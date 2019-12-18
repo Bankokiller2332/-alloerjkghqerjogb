@@ -1,11 +1,40 @@
 <?php
-    //include "./CLASSES/ALBUM/album.php";
-    //$thread_list = Thread::search_thread($_GET["search"]);
+    include "./CLASSES/ALBUM/album.php";
+    include "./CLASSES/USER/user.php";
+
+
+    $album_list = Album::search_album_like($_GET["search"]);
+    $image_list = Image::search_image_like($_GET["search"]);
 ?>
 
-<h1 class="my-4">Search results:</h1>
+<h3 class="my-4">Search result :</h3>
 <?php
-  //foreach($thread_list as $thread){
-  //  $thread->display_thread();
-  //}
+    foreach($album_list as $album){
+        $album->display_album();
+        $id = $album->get_id();
+        $title = $album->get_title();
+        $description = $album->get_description();
+        $proprio = $album->get_proprietaire();
+
+        $user = new User();
+        $user->load_user_by_name($proprio);
+
+        $idDuProprio = $user->get_id();
+        echo "<div class='card bg-dark mb-4'>";
+        echo "<div class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title&description=$description'><h5>$title</h5></a>";
+        echo "</div>"; 
+        if(isset($_SESSION["userID"]))
+        {
+            if($idDuProprio == $_SESSION["userID"])
+            {
+                echo "<a href='./DOMAINLOGIC/supprimerAlbum.dom.php?albumID=$id'>Supprimer</a>";
+            }
+        }
+        echo "</div>";
+        echo "<div class='btn-group-toggle mb-3' data-toggle='buttons'>";
+        echo "<label class='btn btn-primary active btn-outline-light'>";
+        echo "<input type='checkbox' checked autocomplete='off'> like";
+        echo "</label>";
+        echo "</div>";
+    }     
 ?>

@@ -37,8 +37,7 @@
             {
                 echo "<a href='DOMAINLOGIC/deletePhoto.dom.php?imageID=$id'>Supprimer</a>";
             }
-        }
-        
+        }        
         echo "<button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#col$id'>Écrire Commentaire</button>";
         echo" <div id='col$id' class='collapse'> 
         <form method = 'post' action = 'DOMAINLOGIC/createcomment.dom.php'>

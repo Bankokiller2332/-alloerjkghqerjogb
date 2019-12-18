@@ -104,4 +104,21 @@ class Image{
         $TDG = null;
         return $res;
     }
+
+    public static function search_image_like($description){
+        $TDG = new imageTDG();
+        $res = $TDG->search_image_desc_like($description);
+        $image_list = array();
+
+        foreach($res as $r){
+            $image = new Image();
+            $image->set_id($r["imageID"]);
+            $image->set_description($r["description"]);
+            $image->set_albumID($r["albumID"]);
+            $image->set_URL($r["URL"]);
+            array_push($image_list, $image);
+        }
+        
+        return $image_list;
+    }
 }
