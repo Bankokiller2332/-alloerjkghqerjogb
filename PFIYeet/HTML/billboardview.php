@@ -6,7 +6,6 @@
     $name="Anon";
   }
 ?>
-
 <div class="container mt-30">
   <h1 class="mb-4" >Welcome <?php echo $name ?> </h1>
     <div class="row">
@@ -21,5 +20,6 @@
                  include "CreateAlbumview.php"
             ?>
         </div>
+        s
     </div>
 </div>

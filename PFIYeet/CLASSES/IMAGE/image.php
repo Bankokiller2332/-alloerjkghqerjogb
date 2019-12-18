@@ -68,14 +68,7 @@ class Image{
     }
 
     public function display(){
-        $url = $this->URL;
-        $description = $this->description;
-        echo "<div class='card bg-dark mb-4'>";
-        echo "<div class='card-header'>";
-        echo "<img src='$url' alt='$description' width='400' height='400'>";
-        echo "<h3 style='color:white'> $description</h3>";
-        echo "</div>";
-        echo "</div>";
+     
     }
 
     public function addImage($url, $albumID, $description){
