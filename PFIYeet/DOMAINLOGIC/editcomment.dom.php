@@ -17,14 +17,14 @@
     $comment = new comment();
     
     $comment->load_comment($_POST["commentID"]);
-    var_dump($comment);
+    
     if(!$comment->get_auteurID() == $_SESSION["userID"]){
-        //header("Location: ../error.php?ErrorMSG=Bad%20Requests!");
-        //die();
+        header("Location: ../error.php?ErrorMSG=Bad%20Requests!");
+        die();
     }
 
     $comment->set_content($_POST['content']);
     $comment->update();
 
-   //header("Location: ../billboard.php");
-    //die();
+   header("Location: ../billboard.php");
+    die();

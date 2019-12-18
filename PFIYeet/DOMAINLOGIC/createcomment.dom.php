@@ -17,15 +17,15 @@
     //$threadTitle = $_POST["threadTitle"];
     //variables needed to create a post
     $auteurID = $_SESSION["userID"];
-    $id = $_POST["commentID"];
     $content = $_POST["content"];
     $typeObjet = $_POST["typeObjet"];
+    $targetID = $_POST["targetID"];
 
     $comment = new comment();
 
-    if(!$comment->add_comment($typeObjet, $auteurID, $id, $content)){
+    if(!$comment->add_comment($typeObjet, $auteurID, $content, $targetID)){
        
-      //header("Location: ../error.php?ErrorMSG=Bad%20Request");
+      header("Location: ../error.php?ErrorMSG=Bad%20Request");
       die();
     }
 

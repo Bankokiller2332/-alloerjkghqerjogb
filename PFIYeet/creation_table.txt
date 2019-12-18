@@ -23,4 +23,5 @@ CREATE TABLE IF NOT EXISTS commentaire
 (commentaireID 	INTEGER(10) AUTO_INCREMENT PRIMARY KEY,
 typeObjet VARCHAR(10) NOT NULL,
 tempsCreation Date NOT NULL,
-contenu VARCHAR(200) NOT NULL);
+contenu VARCHAR(200) NOT NULL,
+targetID int NOT NULL);

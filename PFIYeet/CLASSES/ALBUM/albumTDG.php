@@ -104,7 +104,6 @@ class AlbumTDG extends DBAO{
             $conn = $this->connect();
             $query = "SELECT * FROM $this->tableName";
             $stmt = $conn->prepare($query);
-            $stmt->bindParam(':id', $userid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();

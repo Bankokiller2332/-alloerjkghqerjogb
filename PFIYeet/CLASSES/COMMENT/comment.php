@@ -1,6 +1,6 @@
 <?php
     include "commentTDG.php";
-    include __DIR__ . "/../USER/User.php";
+    include_once __DIR__ . "/../USER/User.php";
 
     class comment{
 
@@ -9,6 +9,7 @@
         private $tempsCreation;
         private $auteurID;
         private $content;
+        private $targetID;
 
         /*
         public function __construct($id, $authorID, $threadID, $content){
@@ -37,6 +38,9 @@
         public function get_content(){
             return $this->content;
         }
+        public function get_targetID(){
+            return $this->targetID;
+        }
 
         //setters
         public function set_id($id){
@@ -51,16 +55,18 @@
         public function set_auteurID($auteurID){
             $this->auteurID = $auteurID;
         }
-
         public function set_content($content){
             $this->content = $content;
         }
+        public function set_targetID($targetID){
+            $this->targetID = $targetID;
+        }
 
         //QOL
-        public function add_comment($typeObjet, $auteurID, $id, $content){
+        public function add_comment($typeObjet, $auteurID, $content, $targetID){
             $TDG = new commentTDG();
            
-            $res = $TDG->add_comment($typeObjet, $auteurID, $id, $content);
+            $res = $TDG->add_comment($typeObjet, $auteurID, $content, $targetID);
             $TDG = null;
             return $res;
         }
@@ -73,12 +79,13 @@
 
         }
 
-        public function delete(){
+        static  public function delete_by_id($id){
             $TDG = new commentTDG();
-            $res = $TDG->delete_post($this->id);
+            $res = $TDG->delete_comment_by_id($id);
             $TDG = null;
             return $res;
         }
+        
 
         public function display(){
             $id = $this->id;
@@ -86,7 +93,8 @@
             $typeObjet = $this->typeObjet;
             $auteurID = $this->auteurID;
             $content = $this->content;
-            // include "HTML/posttemplate.php";
+            $targetID = $this->targetID;
+            include "HTML/commenttemplate.php";
         }
 
         public function load_comment($id){
@@ -96,13 +104,34 @@
             //$res2 = User::get_username_by_ID($res["authorID"]);
 
             $TDG = null;
-            $this->set_id($res["id"]);
+            $this->set_id($res["commentaireID"]);
             $this->set_auteurID($res["auteurID"]);
             $this->set_tempsCreation($res['tempsCreation']);
-            $this->set_typeObjet($res['typrObjet']);
-            $this->set_content($res["content"]);
+            $this->set_typeObjet($res['typeObjet']);
+            $this->set_content($res["contenu"]);
+            $this->set_targetID($res["targetID"]);
 
             return $res;
+        }
+
+        public function get_list_comment_by_idTarget($idTarget){
+            $TDG = new commentTDG();
+            $res = $TDG->get_all_comment_by_targetID($idTarget);
+
+            $commentList = array();
+
+            foreach($res as $c){
+                $comment = new comment();
+                $comment->set_id($c["commentaireID"]);
+                $comment->set_typeObjet($c["typeObjet"]);
+                $comment->set_auteurID($c["auteurID"]);
+                $comment->set_tempsCreation($c["tempsCreation"]);
+                $comment->set_content($c["contenu"]);
+                $comment->set_targetID($c["targetID"]);
+                array_push($commentList, $comment);
+            }
+
+            return $commentList;
         }
 
 

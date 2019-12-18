@@ -198,7 +198,6 @@ class Album{
             $album->set_time($r["tempsCreation"]);
             array_push($album_list, $album);
         }
-
         return $album_list;
     }
 

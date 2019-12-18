@@ -19,18 +19,18 @@ class commentTDG extends DBAO{
         __construct();
         return self::$instance;
     }*/
-    public function add_comment($typeObjet, $auteurID, $id, $content)
+    public function add_comment($typeObjet, $auteurID, $content, $targetID)
     {
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "INSERT INTO $tableName (commentaireID, typeObjet, tempsCreation,auteurID, contenu) 
-            VALUES (:commentaireID,:typeObjet,CURRENT_TIME(),:auteurID,:content)";
+            $query = "INSERT INTO $tableName (typeObjet, tempsCreation,auteurID, contenu, targetID) 
+            VALUES (:typeObjet,CURRENT_TIME(),:auteurID,:content, :targetID)";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':auteurID', $auteurID);
             $stmt->bindParam(':typeObjet', $typeObjet);
             $stmt->bindParam(':content', $content);
-            $stmt->bindParam(':commentaireID', $id);
+            $stmt->bindParam(':targetID', $targetID);
             $stmt->execute();
             $resp = true;
         }
@@ -89,5 +89,41 @@ class commentTDG extends DBAO{
         return $result;
     }
 
+    public function get_all_comment_by_targetID($targetID){
+        try{
+            $conn = $this->connect();
+            $query = "SELECT * FROM ". $this->tableName ." WHERE targetID=:targetID";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':targetID', $targetID);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+        }
 
+        catch(PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $result;
+    }
+    public function delete_comment_by_id($id){  
+        try{
+            $conn = $this->connect();
+            $tableName = $this->tableName;
+            $query = "DELETE from $tableName where commentaireID =:id";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':id', $id);       
+            $stmt->execute();
+            $res = true;
+        }
+        catch(PDOException $e)
+        {
+            $res = false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $res;
+    }
 }
