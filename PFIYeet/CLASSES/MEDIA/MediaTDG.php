@@ -13,7 +13,7 @@ class mediaTDG extends DBAO{
     }
 
     public static function get_instance(){
-        if(self::$instance == null){
+        if(is_null(self::$instance)){
             self::$instance = new mediaTDG();
         }
         return self::$instance;    

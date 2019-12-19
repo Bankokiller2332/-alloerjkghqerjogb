@@ -19,8 +19,7 @@ class User{
         //$this->password = $password;
         //$this->TDG = new UserTDG;
     }
-
-
+   
     //getters
     public function get_id(){
         return $this->id;
@@ -50,6 +49,11 @@ class User{
 
     public function set_password($password){
         $this->password = $password;
+    }
+
+    public function set_id($id)
+    {
+        $this->id = $id;
     }
 
 
@@ -83,6 +87,7 @@ class User{
             $TDG = null;
             return false;
         }
+       // var_dump($res);
         $this->id = $res["usagerID"];
         $this->email = $res["email"];
         $this->username = $res["username"];
@@ -239,5 +244,20 @@ class User{
         $TDG = UserTDG::get_instance();//$TDG = new userTDG();
         $users = $TDG->get_all_users();
         return $users;
+    }
+
+    public static function search_user_like($userName){
+        $TDG = new userTDG();
+        $res = $TDG->search_user_name_like($userName);
+        $user_list = array();
+
+        foreach($res as $r){
+            $user = new User();
+            $user->set_username($r["username"]);
+            $user->set_id($r["usagerID"]);
+            array_push($user_list, $user);
+        }
+        
+        return $user_list;
     }
 }

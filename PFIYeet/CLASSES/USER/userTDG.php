@@ -17,7 +17,7 @@ class UserTDG extends DBAO{
         }
         return self::$instance;    
     }
-    
+
     public function createTable(){
 
         try{
@@ -276,4 +276,26 @@ class UserTDG extends DBAO{
         return $result;
     }
 
+    public function search_user_name_like($userName){
+        try{
+            $conn = $this->connect();
+            $tableName = $this->tableName;
+            $query = "SELECT * FROM $tableName WHERE username LIKE :userName";
+            $stmt = $conn->prepare($query);
+            $userName = '%' . $userName . '%';
+            $stmt->bindParam(':userName', $userName);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+        }
+
+        catch(PDOException $e)
+        {
+            return false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $result;
+    }
 }
+

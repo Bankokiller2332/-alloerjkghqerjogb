@@ -7,7 +7,7 @@ class AlbumTDG extends DBAO{
     private $tableName;
     private static $instance =null;
 
-    private function __construct(){
+    public function __construct(){
         Parent::__construct();
         $this->tableName = "album";
     }
