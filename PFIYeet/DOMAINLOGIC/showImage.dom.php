@@ -41,29 +41,26 @@
         }
         include "showCommentaire.dom.php";
         echo "<button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#new$id'>Écrire Commentaire</button>";
-        echo" <div id='new$id' class='collapse'>";#
+        echo" <div id='new$id' class='collapse'>
       
-        echo "<button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#col$id'>Écrire Commentaire</button>";
-        echo" <div id='col$id' class='collapse'> 
 
         <form method = 'post' action = 'DOMAINLOGIC/createcomment.dom.php'>
 
-      <div class='form-group'>
-        <input type='hidden' name='typeObjet' value ='image'>
-        <input type='hidden' name='targetID' value='$id'>
-        <textarea rows='5' name='content' id='content' placeholder='Please enter your fucking comment' required></textarea>
-        <div class='valid-feedback'>Valid.</div>
-        <div class='invalid-feedback'>Please fill out this field.</div>
-      </div>
+        <div class='form-group'>
+          <input type='hidden' name='typeObjet' value ='image'>
+          <input type='hidden' name='targetID' value='$id'>
+          <textarea rows='5' name='content' id='content' placeholder='Please enter your fucking comment' required></textarea>
+          <div class='valid-feedback'>Valid.</div>
+          <div class='invalid-feedback'>Please fill out this field.</div>
+        </div>
 
-      <div class='form-group'>
-        <button class='btn btn-success mb-2' type='submit'>Submit</button>
-      </div>
+        <div class='form-group'>
+          <button class='btn btn-success mb-2' type='submit'>Submit</button>
+        </div>
 
-    </form>
-    </div>
-    </div>
-    </div>";
+        </form>
+        </div>
+        </div>";
     }
   
 ?>
