@@ -64,7 +64,7 @@
 
         //QOL
         public function add_comment($typeObjet, $auteurID, $content, $targetID){
-            $TDG = new commentTDG();
+            $TDG = commentTDG::getInstance();//$TDG = new commentTDG();
            
             $res = $TDG->add_comment($typeObjet, $auteurID, $content, $targetID);
             $TDG = null;
@@ -72,7 +72,7 @@
         }
 
         public function update(){
-            $TDG = new commentTDG();
+            $TDG = commentTDG::getInstance();//$TDG = new commentTDG();
             $res = $TDG->edit_comment($this->content, $this->id);
             $TDG = null;
             return $res;
@@ -80,7 +80,7 @@
         }
 
         static  public function delete_by_id($id){
-            $TDG = new commentTDG();
+            $TDG = commentTDG::getInstance();//$TDG = new commentTDG();
             $res = $TDG->delete_comment_by_id($id);
             $TDG = null;
             return $res;
@@ -98,7 +98,7 @@
         }
 
         public function load_comment($id){
-            $TDG = new commentTDG();
+            $TDG = commentTDG::getInstance();//$TDG = new commentTDG();
             $res = $TDG->get_by_ID($id);
 
             //$res2 = User::get_username_by_ID($res["authorID"]);
@@ -115,7 +115,7 @@
         }
 
         public function get_list_comment_by_idTarget_type($idTarget, $typeObjet){
-            $TDG = new commentTDG();
+            $TDG = commentTDG::getInstance();// new commentTDG();
             $res = $TDG->get_all_comment_by_targetID_type($idTarget, $typeObjet);
 
             $commentList = array();
@@ -133,39 +133,6 @@
 
             return $commentList;
         }
-
-
-        /*
-          static function used to create a list of posts
-        */
-        /*
-        private static function fetch_posts_by_threadID($threadID){
-            $TDG = new PostTDG();
-            $res = $TDG->get_posts_by_threadID($threadID);
-            $TDG = null;
-            return $res;
-        }
-
-        public static function create_post_list($threadID){
-
-            $info_array=Post::fetch_posts_by_threadID($threadID);
-            $post_list = array();
-
-            foreach($info_array as $ia){
-
-                $res = User::get_username_by_ID($ia["authorID"]);
-                $temp_post = new Post();
-                $temp_post->set_id($ia["id"]);
-                $temp_post->set_authorID($ia["authorID"]);
-                $temp_post->set_author($res);
-                $temp_post->set_threadID($ia["threadID"]);
-                $temp_post->set_content($ia["content"]);
-                array_push($post_list, $temp_post);
-            }
-
-            return $post_list;
-        }*/
-
     }
 
 ?>
