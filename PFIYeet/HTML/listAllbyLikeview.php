@@ -1,6 +1,7 @@
 <?php
     include "./CLASSES/ALBUM/album.php";
     include "./CLASSES/USER/user.php";
+    include_once "./CLASSES/COMMENT/comment.php";
 
 
     //$album_list = Album::create_album_list($_SESSION["userID"]);

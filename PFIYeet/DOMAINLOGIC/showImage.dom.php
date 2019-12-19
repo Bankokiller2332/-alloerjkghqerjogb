@@ -2,6 +2,7 @@
     include "./CLASSES/ALBUM/album.php";
     include_once "./CLASSES/USER/user.php";
     include_once "./CLASSES/IMAGE/image.php";
+    include_once "./CLASSES/COMMENT/comment.php";
     
     $albumID = $_GET["albumID"];
     $album = new Album(); 

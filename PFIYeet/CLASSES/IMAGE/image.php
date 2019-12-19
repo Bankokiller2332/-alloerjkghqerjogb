@@ -44,6 +44,11 @@ class Image{
     {
         return $this->id;
     }
+    public function get_albumID()
+    {
+        return $this->albumID;
+    }
+
 
     private static function fetch_images_by_albumID($albumID){
         $TDG = imageTDG::get_instance();//$TDG = new imageTDG();
