@@ -11,6 +11,7 @@
     $desc = $album->get_description();
     $user = new User();
     $user->load_user_by_name($proprio);
+    $typeObjet = "image";
 
     $idDuProprio = $user->get_id();
     //$album_list = Album::create_album_list($_SESSION["userID"]);
@@ -40,27 +41,10 @@
 
         }
         include "showCommentaire.dom.php";
-        echo "<button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#new$id'>Écrire Commentaire</button>";
-        echo" <div id='new$id' class='collapse'>
-      
+        include "./HTML/afficherCommentaireView.php";
+        
+        echo "</div>";
 
-        <form method = 'post' action = 'DOMAINLOGIC/createcomment.dom.php'>
-
-        <div class='form-group'>
-          <input type='hidden' name='typeObjet' value ='image'>
-          <input type='hidden' name='targetID' value='$id'>
-          <textarea rows='5' name='content' id='content' placeholder='Please enter your fucking comment' required></textarea>
-          <div class='valid-feedback'>Valid.</div>
-          <div class='invalid-feedback'>Please fill out this field.</div>
-        </div>
-
-        <div class='form-group'>
-          <button class='btn btn-success mb-2' type='submit'>Submit</button>
-        </div>
-
-        </form>
-        </div>
-        </div>";
     }
   
 ?>

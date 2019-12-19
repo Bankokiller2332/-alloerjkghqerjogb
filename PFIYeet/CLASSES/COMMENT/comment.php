@@ -114,9 +114,9 @@
             return $res;
         }
 
-        public function get_list_comment_by_idTarget($idTarget){
+        public function get_list_comment_by_idTarget_type($idTarget, $typeObjet){
             $TDG = new commentTDG();
-            $res = $TDG->get_all_comment_by_targetID($idTarget);
+            $res = $TDG->get_all_comment_by_targetID_type($idTarget, $typeObjet);
 
             $commentList = array();
 

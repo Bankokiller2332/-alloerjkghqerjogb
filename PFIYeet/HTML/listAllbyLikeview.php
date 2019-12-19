@@ -15,6 +15,7 @@
         $title = $album->get_title();
         $description = $album->get_description();
         $proprio = $album->get_proprietaire();
+        $typeObjet = "album";
 
         $user = new User();
         $user->load_user_by_name($proprio);
@@ -30,11 +31,13 @@
                 echo "<a href='./DOMAINLOGIC/supprimerAlbum.dom.php?albumID=$id'>Supprimer</a>";
             }
         }
+        include "./DOMAINLOGIC/showCommentaire.dom.php";
+        include "afficherCommentaireView.php";
         echo "</div>";
         echo "<div class='btn-group-toggle mb-3' data-toggle='buttons'>";
         echo "<label class='btn btn-primary active btn-outline-light'>";
-        echo "<input type='checkbox' checked autocomplete='off'> like";
-        echo "</label>";
+        echo "<input type='checkbox' checked autocomplete='off'> like </label>";
+       
         echo "</div>";
     }
   

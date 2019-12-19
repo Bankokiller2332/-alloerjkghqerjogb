@@ -9,13 +9,10 @@
         die();
     }
 
-    if(!isset($_POST["content"])){ //|| !isset($_POST["threadID"]) || !isset($_POST["threadTitle"])){
+    if(!isset($_POST["content"])){ 
       header("Location: ../error.php?ErrorMSG=Bad%20Request");
       die();
     }
-
-    //$threadTitle = $_POST["threadTitle"];
-    //variables needed to create a post
     $auteurID = $_SESSION["userID"];
     $content = $_POST["content"];
     $typeObjet = $_POST["typeObjet"];

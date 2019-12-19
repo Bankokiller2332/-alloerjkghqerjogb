@@ -11,7 +11,7 @@
   if(isset($_SESSION["userID"]) && $auteurID == $_SESSION["userID"]){
 
     echo "<div class='card-footer text-left'>
-    <button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#col$id'>Edit post</button>
+    <button class='btn btn-secondary mb-2' data-toggle='collapse' data-target='#col$id'>Edit comment</button>
     <div id='col$id' class='collapse'>
 
     <form method = 'post' action = 'DOMAINLOGIC/editcomment.dom.php'>
@@ -33,7 +33,7 @@
     <form method = 'post' action = 'DOMAINLOGIC/deletecomment.dom.php'>
 
       <input type='hidden' name='commentID' value='$id'>
-      <button class='btn btn-danger mb-2' type='submit'>Delete post</button>
+      <button class='btn btn-danger mb-2' type='submit'>Delete comment</button>
 
     </form>
     </div>

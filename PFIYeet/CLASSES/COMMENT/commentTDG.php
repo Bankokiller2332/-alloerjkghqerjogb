@@ -89,12 +89,13 @@ class commentTDG extends DBAO{
         return $result;
     }
 
-    public function get_all_comment_by_targetID($targetID){
+    public function get_all_comment_by_targetID_type($targetID, $typeObjet){
         try{
             $conn = $this->connect();
-            $query = "SELECT * FROM ". $this->tableName ." WHERE targetID=:targetID";
+            $query = "SELECT * FROM ". $this->tableName ." WHERE targetID=:targetID and typeObjet = :typeObjet";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':targetID', $targetID);
+            $stmt->bindParam(':typeObjet', $typeObjet);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();
