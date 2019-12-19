@@ -57,7 +57,7 @@ class User{
         Quality of Life methods (Dans la langue de shakespear (ou QOLM pour les intimes))
     */
     public function load_user($email){
-        $TDG = new UserTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
         $res = $TDG->get_by_email($email);
 
         if(!$res)
@@ -75,7 +75,7 @@ class User{
         return true;
     }
     public function load_user_by_name($username){
-        $TDG = new UserTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
         $res = $TDG->get_by_username($username);
 
         if(!$res)
@@ -83,7 +83,6 @@ class User{
             $TDG = null;
             return false;
         }
-       // var_dump($res);
         $this->id = $res["usagerID"];
         $this->email = $res["email"];
         $this->username = $res["username"];
@@ -114,7 +113,7 @@ class User{
 
     //Register Validation
     public function validate_email_not_exists($email){
-        $TDG = new UserTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
         $res = $TDG->get_by_email($email);
         $TDG = null;
         if($res)
@@ -140,7 +139,7 @@ class User{
         }
 
         //add user to DB
-        $TDG = new UserTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
         $res = $TDG->add_user($email, $username, password_hash($pw, PASSWORD_DEFAULT), $path);
         $TDG = null;
         return true;
@@ -167,7 +166,7 @@ class User{
         $this->email = $newmail;
         $this->username = $newname;
 
-        $TDG = new UserTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
         $res = $TDG->update_info($this->email, $this->username, $this->id);
 
         if($res){
@@ -202,7 +201,7 @@ class User{
         }
 
         //create TDG and update to new hash
-        $TDG = new UserTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
         $NHP = password_hash($pw, PASSWORD_DEFAULT);
         $res = $TDG->update_password($NHP, $this->id);
         $this->password = $NHP;
@@ -212,14 +211,14 @@ class User{
     }
 
     public static function get_username_by_ID($id){
-        $TDG = new UserTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
         $res = $TDG->get_by_id($id);
         $TDG = null;
         return $res["username"];
     }
 
     public function get_url_by_id($id){
-        $TDG = new UserTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
         $res = $TDG->url_by_id($id);
         $TDG = null;
         $this->imgUrl = $res["imageProfil"];
@@ -229,7 +228,7 @@ class User{
     public function update_user_photo($url,$id){        
         $this->imgUrl = $url;
 
-        $TDG = new UserTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
         $res = $TDG->update_photo($this->imgUrl, $id);       
         
         $TDG = null;
@@ -237,7 +236,7 @@ class User{
     }
 
     public static function get_All_Users(){
-        $TDG = new userTDG();
+        $TDG = UserTDG::get_instance();//$TDG = new userTDG();
         $users = $TDG->get_all_users();
         return $users;
     }

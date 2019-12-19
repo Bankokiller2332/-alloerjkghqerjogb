@@ -12,13 +12,12 @@ class commentTDG extends DBAO{
         $this->tableName = "commentaire";
     }
 
-    /*public static function getInstance(){
-        if(!is_null(self::$instance)){
-            return self::$instance;
+    public static function getInstance(){
+        if(self::$instance == null){
+            self::$instance = new commentTDG();
         }
-        __construct();
         return self::$instance;
-    }*/
+    }
     public function add_comment($typeObjet, $auteurID, $content, $targetID)
     {
         try{

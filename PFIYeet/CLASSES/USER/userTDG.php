@@ -5,14 +5,19 @@ include_once __DIR__ . "/../../UTILS/connector.php";
 class UserTDG extends DBAO{
 
     private $tableName;
-    private static $_instance = null;
+    private static $instance = null;
 
     public function __construct(){
         Parent::__construct();
         $this->tableName = "usager";
     }
-
-    //create table
+    public static function get_instance(){
+        if(self::$instance == null){
+            self::$instance = new UserTDG();
+        }
+        return self::$instance;    
+    }
+    
     public function createTable(){
 
         try{

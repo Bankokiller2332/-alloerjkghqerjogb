@@ -52,7 +52,7 @@ class Album{
         Quality of Life methods (Dans la langue de shakespear (ou QOLM pour les intimes))
     */
     public function load_album_by_id($id){
-        $TDG = new AlbumTDG();
+        $TDG = AlbumTDG::getInstance();
         $res = $TDG->get_by_ID($id);
 
         if(!$res){
@@ -67,7 +67,7 @@ class Album{
     }
 
     public function load_album_by_title($title){
-        $TDG = new AlbumTDG();
+        $TDG = AlbumTDG::getInstance();//$TDG = new AlbumTDG();
         $res = $TDG->get_by_title($title);
 
         if(!$res){
@@ -82,7 +82,7 @@ class Album{
 
 
     public function add_album($title,$proprietaire, $description){
-        $TDG = new AlbumTDG();
+        $TDG = AlbumTDG::getInstance();//$TDG = new AlbumTDG();
         $res = $TDG->add_album($title,$proprietaire, $description);
         $TDG = null;
         if(!$res)
@@ -118,7 +118,7 @@ class Album{
 
    public static function delete_album($id)
    {
-       $TDG = new albumTDG();
+    $TDG = AlbumTDG::getInstance();//$TDG = new albumTDG();
        $images = Image::create_image_list($id);
        foreach($images as $img)
        {
@@ -127,28 +127,11 @@ class Album{
        $TDG->delete_album($id);
    }
 
-    /*public function display_posts(){
-        if(empty($this->posts)){
-            $this->load_posts();
-        }
-
-        if(empty($this->posts))
-        {
-            echo "<h3 class='mb-4'>No Post found in this thread</h3>";
-        }
-        else{
-
-            foreach($this->posts as $posts => $post){
-                $post->display();
-              }
-        }
-    }*/
-
     /*
     STATIC FUNCTIONS
     */
     private static function list_all_albums_by_id($userid){
-        $TDG = new AlbumTDG();
+        $TDG = AlbumTDG::getInstance();//$TDG = new AlbumTDG();
         $res = $TDG->get_all_albums_by_id($userid);
         $TDG = null;
         if(!$res)
@@ -175,7 +158,7 @@ class Album{
         return $album_list;
     }
     private static function list_all_albums(){
-        $TDG = new AlbumTDG();
+        $TDG = AlbumTDG::getInstance();//$TDG = new AlbumTDG();
         $res = $TDG->get_all_albums();
         $TDG = null;
         if(!$res)
@@ -203,7 +186,7 @@ class Album{
 
 
     public static function search_album_like($title){
-        $TDG = new AlbumTDG();
+        $TDG = AlbumTDG::getInstance();//$TDG = new AlbumTDG();
         $res = $TDG->search_album_title_like($title);
         $album_list = array();
 

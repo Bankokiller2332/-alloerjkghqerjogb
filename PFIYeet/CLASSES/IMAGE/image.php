@@ -45,15 +45,8 @@ class Image{
         return $this->id;
     }
 
-    //public function __construct($id, $albumID, $URL, $description, $tempsCreation){
-   //     $this->id = $id;
-   //     $this->type = $type;
-   ///     $this->URL = $URL;
-    //    $this->title = $title;
-    //}
-
     private static function fetch_images_by_albumID($albumID){
-        $TDG = new imageTDG();
+        $TDG = ImageTDG::get_instance();//$TDG = new imageTDG();
         $res = $TDG->get_images_by_albumID($albumID);
         $TDG = null;
         return $res;
@@ -61,13 +54,13 @@ class Image{
 
     public function delete()
     {
-        $TDG = new ImageTDG();
+        $TDG = ImageTDG::get_instance();//$TDG = new ImageTDG();
         $TDG->delete($this->id);
     }
 
     public static function delete_by_id($id)
     {
-        $TDG = new ImageTDG();
+        $TDG = ImageTDG::get_instance();//$TDG = new ImageTDG();
         $TDG->delete($id);
     }
 
@@ -99,13 +92,13 @@ class Image{
     }
 
     public function addImage($url, $albumID, $description){
-        $TDG = new ImageTDG();
+        $TDG = ImageTDG::get_instance();//$TDG = new ImageTDG();
         $res = $TDG->add_Image($url,$albumID, $description);
         $TDG = null;
         return $res;
     }
     public static function search_image_like($description){
-        $TDG = new imageTDG();
+        $TDG = ImageTDG::get_instance();//$TDG = new imageTDG();
         $res = $TDG->search_image_desc_like($description);
         $image_list = array();
 

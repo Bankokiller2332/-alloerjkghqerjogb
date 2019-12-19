@@ -7,11 +7,17 @@ class AlbumTDG extends DBAO{
     private $tableName;
     private static $instance =null;
 
-    public function __construct(){
+    private function __construct(){
         Parent::__construct();
         $this->tableName = "album";
     }
 
+    public static function getInstance(){
+        if(self::$instance == null){
+            self::$instance = new AlbumTDG();
+        }
+        return self::$instance;
+    }
     public function delete_album($albumID)
     {       
         try{
