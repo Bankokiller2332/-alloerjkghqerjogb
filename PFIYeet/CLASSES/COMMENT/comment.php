@@ -85,6 +85,12 @@
             $TDG = null;
             return $res;
         }
+        static public function delete_by_target_id($targetId){
+            $TDG = commentTDG::getInstance();
+            $res = $TDG->delete_comment_by_targetID($targetId);
+            $TDG = null;
+            return $res;
+        }
         
 
         public function display(){
@@ -94,6 +100,8 @@
             $auteurID = $this->auteurID;
             $content = $this->content;
             $targetID = $this->targetID;
+            $user = new User();
+            $user->load_user_by_ID($auteurID);
             include "HTML/commenttemplate.php";
         }
 
@@ -133,6 +141,7 @@
 
             return $commentList;
         }
+
     }
 
 ?>

@@ -13,7 +13,7 @@ class commentTDG extends DBAO{
     }
 
     public static function getInstance(){
-        if(!is_null(self::$instance)){
+        if(self::$instance == null){
             self::$instance = new commentTDG();
         }
         
@@ -45,7 +45,7 @@ class commentTDG extends DBAO{
         $conn = null;
         return $resp;
     }
-
+    
     public function edit_comment($content, $id){
 
         try{
@@ -116,6 +116,25 @@ class commentTDG extends DBAO{
             $query = "DELETE from $tableName where commentaireID =:id";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':id', $id);       
+            $stmt->execute();
+            $res = true;
+        }
+        catch(PDOException $e)
+        {
+            $res = false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $res;
+    }
+
+    public function delete_comment_by_targetID($targetID){
+        try{
+            $conn = $this->connect();
+            $tableName = $this->tableName;
+            $query = "DELETE from $tableName where targetID =:targetID";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':targetID', $targetID);       
             $stmt->execute();
             $res = true;
         }

@@ -1,6 +1,6 @@
 <div class="card mb-4">
   <div class="card-header bg-dark text-left">
-    <!--<h5 class="text-left text-light"><?php //echo $author, "#",$authorID ?></h5>-->
+    <h5 class="text-left text-light"><?php echo $user->get_username(), "#",$auteurID ?></h5>
   </div>
   <div class="card-body text-left">
     <p class="card-text"><?php echo $content ?></p>

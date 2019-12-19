@@ -87,11 +87,28 @@ class User{
             $TDG = null;
             return false;
         }
-       // var_dump($res);
+       
         $this->id = $res["usagerID"];
         $this->email = $res["email"];
         $this->username = $res["username"];
         $this->password = $res["password"];
+
+        $TDG = null;
+        return true;
+    }
+    public function load_user_by_ID($id){
+        $TDG = UserTDG::get_instance();//$TDG = new UserTDG();
+        $res = $TDG->get_by_id($id);
+
+        if(!$res)
+        {
+            $TDG = null;
+            return false;
+        }
+       
+        $this->id = $res["usagerID"];
+        $this->email = $res["email"];
+        $this->username = $res["username"];
 
         $TDG = null;
         return true;
@@ -247,7 +264,7 @@ class User{
     }
 
     public static function search_user_like($userName){
-        $TDG = new userTDG();
+        $TDG = UserTDG::get_instance();
         $res = $TDG->search_user_name_like($userName);
         $user_list = array();
 

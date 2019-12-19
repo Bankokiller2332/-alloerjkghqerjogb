@@ -7,7 +7,8 @@
     $user_list = User::search_user_like($_GET["search"]);
 ?>
 
-<h3 class="my-4">Search result :</h3>
+<h1 class="my-4">Search result :</h1>
+<h3 class="my-4">Albums :</h3>
 <?php
     foreach($album_list as $album){
         $album->display_album();
@@ -37,7 +38,7 @@
         echo "</label>";
         echo "</div>";
     }
-    
+     echo '<h3 class="my-4">Usagers :</h3>';
     foreach($user_list as $user){
         $userName = $user->get_username();   
         $usagerID = $user->get_id();    
